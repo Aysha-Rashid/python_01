@@ -1,25 +1,32 @@
 import numpy as np
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
-    # so we divide the weight with the square of height
+def give_bmi(height, weight):
+    try: 
+        height = np.array(height, dtype=float)
+        weight = np.array(weight, dtype=float)
+        print("height checking : ", height)
+        print("weight checking : ", weight)
 
-    returnList = []
-    j = 0
-    for i,j  in zip(height, weight):
-        result = j / i ** 2
-        returnList.append(result)
- # using the keyword zip, i was able to go through two list parallel
-    return returnList
+        if height.shape != weight.shape:
+            raise ValueError("height and weight must have the same length")
+        return (weight / (height ** 2)).tolist()
+    except Exception as e:
+        print("Error occured: ", e)
+        return []
 
-def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+def apply_limit(bmi, limit: int):
+    bmi = np.array(bmi, dtype=float)
+    return (bmi > limit).tolist()
 
-    checking = []
-    for i in bmi:
-        if i > limit:
-            checking.append(True)
-        else:
-            checking.append(False)
-    return (checking)
+
+# Example
+h = [1.70, 1.82, 3]
+w = [65, 85, 45]
+
+bmi_values = give_bmi(h, w)
+print(bmi_values)
+
+print(apply_limit(bmi_values, 25))
 
 
 # BmiList = give_bmi([2.71, 1.15], [165.3, 38.4])
