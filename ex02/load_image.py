@@ -5,14 +5,13 @@ import matplotlib.pyplot as plt
 
 
 def ft_load(path: str) -> array:
+    """Loads the image using mpimg.iread and returns img."""
     try:
         img = mpimg.imread(path)
-    # plt.imshow(img)
         print("The shape of image is:", img.shape)
     except Exception as e:
         print("Error:", e)
         return []
     return (img)
 
-
-# print(ft_load("./landscape.jpg"))
+print(ft_load("./landscape.jpg"))

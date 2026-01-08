@@ -1,19 +1,3 @@
-# from PIL import Image
-# import numpy as np
-# def load_image(path: str):
-#     try:
-#         testImg = Image.open(path)
-#         print("the size of the img:", testImg.size)
-#         img_array = np.array(testImg)
-#         print("The shape of image is:",img_array.shape)
-#         testImg.show()
-#         rotateImg = testImg.rotate(90, expand=True).show()
-#         rotateImg.save("newImage.jpeg")
-#     except Exception as e:
-#         print("Error:", e)
-#         return []
-#     return (testImg)
-
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
@@ -47,3 +31,12 @@ def load_image(path: str):
         return []
 
     return testImg
+
+def main():
+    img = load_image("animal.jpeg")
+    # print(img)
+    # plt.imshow(img)
+    # zoom(img)
+
+if __name__ == "__main__":
+    main()
