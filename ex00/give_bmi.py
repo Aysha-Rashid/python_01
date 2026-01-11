@@ -1,12 +1,10 @@
 import numpy as np
 
 def give_bmi(height: float | int, weight: float | int):
+    """Takes height and weight and returns BMI"""
     try: 
         height = np.array(height, dtype=float)
         weight = np.array(weight, dtype=float)
-        print("height checking : ", height)
-        print("weight checking : ", weight)
-
         if height.shape != weight.shape:
             raise ValueError("height and weight must have the same length")
         return (weight / (height ** 2)).tolist()

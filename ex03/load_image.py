@@ -4,27 +4,18 @@ import matplotlib.pyplot as plt
 
 def load_image(path: str):
     try:
-        testImg = Image.open(path)
-        print("the size of the img:", testImg.size)
+        testImg = plt.imread(path)
+        print("The shape of image is:", testImg.shape)
+        print(testImg)
 
-        img_array = np.array(testImg)
-        print("The shape of image is:", img_array.shape)
-
-        # Display original
-        plt.imshow(img_array)
-        plt.title("Original Image")
-        plt.axis("off")
+        gray = np.mean(testImg, axis=2).astype(np.uint8)
+        img1_resized = gray[:400, :400]
+        img1_resized = img1_resized[:, :, np.newaxis]
+        print("New shape after slicing:", img1_resized.shape)
+        print(img1_resized)
+        plt.title("Resize Image")
+        plt.imshow(img1_resized, cmap="gray")
         plt.show()
-
-        # Rotate and show
-        rotated = testImg.rotate(90, expand=True)
-        plt.imshow(np.array(rotated))
-        plt.title("Rotated Image")
-        plt.axis("off")
-        plt.show()
-
-        # Save rotated image
-        rotated.save("rotated_image.jpeg")
 
     except Exception as e:
         print("Error:", e)
