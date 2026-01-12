@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from zoom import zoom
 
 
 def load_image(path: str):
@@ -15,12 +14,3 @@ shape of the image and returns img."""
     except Exception as e:
         print("Error:", e)
         return []
-
-
-def main():
-    img = load_image("animal.jpeg")
-    zoom(img)
-
-
-if __name__ == "__main__":
-    main()

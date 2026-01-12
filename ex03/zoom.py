@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from load_image import load_image
 
 
 def zoom(img: str):
@@ -12,3 +13,12 @@ then slice it to 400, 400 and then displays the img"""
     plt.title("Sliced Image")
     plt.imshow(img_sliced, cmap="gray")
     plt.show()
+
+
+def main():
+    img = load_image("animal.jpeg")
+    zoom(img)
+
+
+if __name__ == "__main__":
+    main()
