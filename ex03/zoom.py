@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from load_image import load_image
+from load_image import ft_load
 
 
-def zoom(img: str):
+def zoom(img: np.ndarray):
     """Takes the img, convert it into grey and
 then slice it to 400, 400 and then displays the img"""
     gray = np.mean(img, axis=2).astype(np.uint8)
@@ -16,7 +16,7 @@ then slice it to 400, 400 and then displays the img"""
 
 
 def main():
-    img = load_image("animal.jpeg")
+    img = ft_load("animal.jpeg")
     zoom(img)
 
 

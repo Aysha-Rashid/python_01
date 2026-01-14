@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 
-def load_image(path: str):
+def ft_load(path: str) -> np.ndarray:
     """Loads the image using mpimg.iread, prints the
 shape of the image and returns img."""
     try:

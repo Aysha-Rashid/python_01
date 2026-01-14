@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from load_image import load_image
+from load_image import ft_load
 
 
 def rotate(img: np.ndarray):
@@ -16,7 +16,7 @@ does transpose it to produce an image"""
 
 
 def main():
-    img = load_image("animal.jpeg")
+    img = ft_load("animal.jpeg")
     print(img)
     rotate(img)
 
